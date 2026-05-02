@@ -22,6 +22,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script async src="https://tally.so/widgets/embed.js"></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -202,80 +203,21 @@
           </ul>
         </div>
 
-        <div class="form-card" data-form-placeholder="tally-or-google-form">
-          <div class="placeholder-banner" role="note">
-            TODO: Tally 또는 Google Form embed URL을 여기에 연결하세요.
+        <div class="form-card tally-card" data-analytics-form="tally-embed">
+          <div class="tally-frame-wrap">
+            <iframe
+              data-tally-src="https://tally.so/r/GxYrgL?transparentBackground=1"
+              width="100%"
+              height="720"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="AI 자동화 실험 참여 신청"
+            ></iframe>
           </div>
-          <!-- TODO: Replace this preview form with a Tally or Google Form embed URL when available. -->
-          <form class="lead-form-preview" aria-label="리드 폼 미리보기" data-analytics-form="lead-preview">
-            <div class="form-row">
-              <label for="name">이름 또는 닉네임</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="예: 제로" />
-            </div>
-            <div class="form-row">
-              <label for="email">이메일</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
-            </div>
-            <div class="form-row">
-              <label for="problem-detail">어떤 문제를 자동화하고 싶나요?</label>
-              <textarea id="problem-detail" name="problem" rows="4" placeholder="업무, 일상, 콘텐츠, 공부, 사이드 프로젝트 등 구체적으로 작성"></textarea>
-            </div>
-            <div class="form-row">
-              <label for="frequency">이 문제가 얼마나 자주 발생하나요?</label>
-              <select id="frequency" name="frequency">
-                <option value="">선택해주세요</option>
-                <option>매일</option>
-                <option>주 2-3회</option>
-                <option>주 1회</option>
-                <option>가끔</option>
-                <option>아직 모름</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="current-workaround">현재 어떤 방식으로 해결하고 있나요?</label>
-              <textarea id="current-workaround" name="current_workaround" rows="3" placeholder="현재 쓰는 도구, 수작업 방식, 막히는 지점"></textarea>
-            </div>
-            <fieldset class="form-row checkbox-group">
-              <legend>관심 있는 도움 방식</legend>
-              <label><input type="checkbox" name="interest" value="diagnosis" /> 문제 진단만 받아보고 싶다</label>
-              <label><input type="checkbox" name="interest" value="beta" /> 베타 진단 세션에 관심 있다</label>
-              <label><input type="checkbox" name="interest" value="template" /> 자동화 템플릿/가이드가 나오면 받고 싶다</label>
-              <label><input type="checkbox" name="interest" value="paid" /> 향후 유료 서비스가 나오면 안내받고 싶다</label>
-            </fieldset>
-            <fieldset class="form-row checkbox-group">
-              <legend>유료 베타 진단 세션 의향</legend>
-              <label><input type="radio" name="willingness" value="content-only" /> 무료/콘텐츠 실험 참여만 관심</label>
-              <label><input type="radio" name="willingness" value="under-50000" /> 5만원 미만이면 고려</label>
-              <label><input type="radio" name="willingness" value="over-50000" /> 5만원 이상도 문제에 따라 고려</label>
-              <label><input type="radio" name="willingness" value="unsure" /> 아직 모르겠다</label>
-            </fieldset>
-            <div class="form-row">
-              <label for="situation">직업/상황</label>
-              <select id="situation" name="situation">
-                <option value="">선택해주세요</option>
-                <option>직장인</option>
-                <option>프리랜서</option>
-                <option>창업/1인기업</option>
-                <option>학생</option>
-                <option>크리에이터</option>
-                <option>기타</option>
-              </select>
-            </div>
-            <fieldset class="form-row checkbox-group">
-              <legend>개인정보 수집 동의</legend>
-              <label><input type="checkbox" name="privacy_consent" value="agree" /> 이메일과 문제 설명을 리드 응답 및 베타 세션 안내 목적으로 사용하는 데 동의합니다.</label>
-            </fieldset>
-            <p class="privacy-note">
-              이메일과 문제 설명은 리드 응답 및 베타 세션 안내 목적으로만 사용합니다. 민감한 개인정보, 회사 내부 기밀, 타인의 개인정보는 적지 말아주세요.
-            </p>
-            <button
-              class="button button-primary button-full"
-              type="submit"
-              data-analytics-event="form_intent"
-              data-analytics-label="preview_submit"
-            >문제 제출하기</button>
-            <p class="submit-note" aria-live="polite"></p>
-          </form>
+          <p class="privacy-note tally-note">
+            제출은 Tally 폼에서 처리됩니다. 민감한 개인정보, 회사 내부 기밀, 타인의 개인정보는 적지 말아주세요.
+          </p>
         </div>
       </section>
 

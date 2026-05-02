@@ -5,6 +5,7 @@ Static v0.1 landing page for `박제로의 실험기록 / Zero’s Lab Notes`.
 ## Files
 
 - `index.html` — semantic static page and Korean landing copy
+- `thanks.html` — post-submit thank-you page for Tally redirects
 - `styles.css` — mobile-first monochrome visual system
 - `script.js` — CTA scroll behavior and minimal analytics hooks
 
@@ -24,16 +25,15 @@ http://127.0.0.1:4173/
 
 No package install or build step is required.
 
-## Form integration TODO
+## Tally form integration
 
-The page currently includes a visible preview form only. It intentionally does not submit data.
+The lead form section embeds Tally directly in `site/index.html`.
 
-Replace the placeholder block in `site/index.html` with one of these once ready:
+- Tally embed URL: `https://tally.so/r/GxYrgL?transparentBackground=1`
+- Tally redirect URL: `https://pyoung527.github.io/zeros-lab-notes/thanks.html`
+- Local thank-you page: `site/thanks.html`
 
-1. Tally embed iframe or Tally popup link
-2. Google Form embed iframe or external link
-
-Keep the recommended questions from the PRD:
+Keep the recommended questions from the PRD in the Tally form:
 
 - 이름 또는 닉네임
 - 이메일

@@ -52,29 +52,17 @@ document.querySelectorAll('a[href="#signal-form"]').forEach((link) => {
   link.addEventListener("click", scrollToForm);
 });
 
-const previewForm = document.querySelector(".lead-form-preview");
-const submitNote = document.querySelector(".submit-note");
+const tallyCard = document.querySelector('[data-analytics-form="tally-embed"]');
 
-if (previewForm) {
-  let formStarted = false;
+if (tallyCard) {
+  let tallyIntentTracked = false;
 
-  previewForm.addEventListener("input", (event) => {
-    if (!formStarted) {
-      formStarted = true;
-      analyticsLog("form_start", {
-        label: "lead_preview",
-        firstField: event.target.name || event.target.id || "unknown",
-      });
+  tallyCard.addEventListener("pointerdown", () => {
+    if (tallyIntentTracked) {
+      return;
     }
-  });
 
-  previewForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    analyticsLog("form_intent", { label: "preview_submit_no_backend" });
-
-    if (submitNote) {
-      submitNote.textContent =
-        "아직 제출 백엔드는 연결되지 않았습니다. Tally 또는 Google Form URL 연결 후 실제 제출이 가능합니다.";
-    }
+    tallyIntentTracked = true;
+    analyticsLog("form_intent", { label: "tally_embed_interaction" });
   });
 }

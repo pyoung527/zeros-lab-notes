@@ -181,9 +181,9 @@ h3 {
 }
 
 h1 {
-  max-width: 13ch;
+  max-width: 16ch;
   margin-bottom: 1.4rem;
-  font-size: clamp(3.4rem, 14vw, 8.7rem);
+  font-size: clamp(3rem, 10vw, 7rem);
 }
 
 h2 {

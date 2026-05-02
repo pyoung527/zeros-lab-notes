@@ -1,0 +1,88 @@
+# Zero’s Lab Notes Landing Page
+
+Static v0.1 landing page for `박제로의 실험기록 / Zero’s Lab Notes`.
+
+## Files
+
+- `index.html` — semantic static page and Korean landing copy
+- `styles.css` — mobile-first monochrome visual system
+- `script.js` — CTA scroll behavior and minimal analytics hooks
+
+## Local preview
+
+From the repository root:
+
+```bash
+python3 -m http.server 4173 --directory site
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4173/
+```
+
+No package install or build step is required.
+
+## Form integration TODO
+
+The page currently includes a visible preview form only. It intentionally does not submit data.
+
+Replace the placeholder block in `site/index.html` with one of these once ready:
+
+1. Tally embed iframe or Tally popup link
+2. Google Form embed iframe or external link
+
+Keep the recommended questions from the PRD:
+
+- 이름 또는 닉네임
+- 이메일
+- 어떤 문제를 자동화하고 싶나요?
+- 이 문제가 얼마나 자주 발생하나요?
+- 현재 어떤 방식으로 해결하고 있나요?
+- 관심 있는 도움 방식
+- 유료 베타 진단 세션 의향
+- 직업/상황, if useful
+- 개인정보 수집 동의, if collecting identifiable data
+
+## Analytics integration TODO
+
+`site/script.js` currently logs events to the browser console and calls Plausible/Umami if their global objects exist.
+
+Tracked events:
+
+- `cta_click`
+- `form_start`
+- `form_intent`
+
+To connect Plausible or Umami later, add the provider script snippet in `index.html`. The existing event hooks should start forwarding custom events automatically.
+
+## GitHub Pages deployment
+
+Recommended simple setup:
+
+1. Push `main` to GitHub.
+2. In GitHub repo settings, open `Pages`.
+3. Select source: `Deploy from a branch`.
+4. Select branch: `main`.
+5. Select folder: `/site`, if available for the repository.
+6. Save and wait for the Pages build.
+
+If GitHub Pages does not offer `/site` as a folder source, use one of these alternatives:
+
+- Move/copy the static files to `/docs` and select `/docs` as the Pages source.
+- Add a GitHub Actions workflow that deploys `site/` as the Pages artifact.
+- Deploy the repo with Vercel and set the output/root directory to `site`.
+
+## Vercel deployment
+
+1. Import `pyoung527/zeros-lab-notes` in Vercel.
+2. Set Framework Preset to `Other`.
+3. Set Root Directory to `site`.
+4. Leave Build Command empty.
+5. Leave Output Directory as `.`.
+6. Deploy.
+
+## Privacy note
+
+Before collecting real submissions, add or link a clear privacy notice that explains email/problem-description usage and warns visitors not to submit confidential or sensitive information.

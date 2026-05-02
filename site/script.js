@@ -40,7 +40,7 @@ const scrollToForm = (event) => {
 };
 
 document.querySelectorAll("[data-analytics-event]").forEach((element) => {
-  element.addEventListener("click", (event) => {
+  element.addEventListener("click", () => {
     analyticsLog(element.dataset.analyticsEvent, {
       label: element.dataset.analyticsLabel || element.textContent.trim(),
       href: element.getAttribute("href") || "",
@@ -52,17 +52,12 @@ document.querySelectorAll('a[href="#signal-form"]').forEach((link) => {
   link.addEventListener("click", scrollToForm);
 });
 
-const tallyCard = document.querySelector('[data-analytics-form="tally-embed"]');
-
-if (tallyCard) {
-  let tallyIntentTracked = false;
-
-  tallyCard.addEventListener("pointerdown", () => {
-    if (tallyIntentTracked) {
-      return;
-    }
-
-    tallyIntentTracked = true;
-    analyticsLog("form_intent", { label: "tally_embed_interaction" });
+document.querySelectorAll("[data-analytics-form-intent]").forEach((element) => {
+  element.addEventListener("click", () => {
+    analyticsLog("form_intent", {
+      label: element.dataset.analyticsFormIntent,
+      form_provider: "tally",
+      form_mode: "popup",
+    });
   });
-}
+});

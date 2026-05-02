@@ -7,7 +7,7 @@ Static v0.1 landing page for `박제로의 실험기록 / Zero’s Lab Notes`.
 - `index.html` — semantic static page and Korean landing copy
 - `thanks.html` — post-submit thank-you page for Tally redirects
 - `styles.css` — mobile-first monochrome visual system
-- `script.js` — CTA scroll behavior and minimal analytics hooks
+- `script.js` — CTA scroll behavior for in-page links and minimal analytics hooks
 
 ## Local preview
 
@@ -27,11 +27,20 @@ No package install or build step is required.
 
 ## Tally form integration
 
-The lead form section embeds Tally directly in `site/index.html`.
+The lead form uses Tally popup mode instead of an embedded iframe, so primary CTAs open the form cleanly without adding a large iframe to the page.
 
-- Tally embed URL: `https://tally.so/r/GxYrgL?transparentBackground=1`
+- Tally form ID: `GxYrgL`
+- Tally script: `<script async src="https://tally.so/widgets/embed.js"></script>` in `site/index.html` `<head>`; keep it once only.
+- Popup attributes used by CTAs:
+  - `data-tally-open="GxYrgL"`
+  - `data-tally-overlay="1"`
+  - `data-tally-emoji-text="👋"`
+  - `data-tally-emoji-animation="wave"`
+- Hash fallback: `#tally-open=GxYrgL&tally-overlay=1&tally-emoji-text=👋&tally-emoji-animation=wave`
 - Tally redirect URL: `https://pyoung527.github.io/zeros-lab-notes/thanks.html`
 - Local thank-you page: `site/thanks.html`
+
+The visible `#signal-form` section should remain as a clean invitation/card with a popup button. Avoid reintroducing a full Tally iframe unless intentionally testing embedded mode, because iframe + popup creates duplicate form surfaces.
 
 Keep the recommended questions from the PRD in the Tally form:
 
@@ -51,9 +60,8 @@ Keep the recommended questions from the PRD in the Tally form:
 
 Tracked events:
 
-- `cta_click`
-- `form_start`
-- `form_intent`
+- `cta_click` — CTA/button clicks, including Tally popup CTAs
+- `form_intent` — emitted when a popup CTA is clicked; this tracks intent only, not Tally submissions
 
 To connect Plausible or Umami later, add the provider script snippet in `index.html`. The existing event hooks should start forwarding custom events automatically.
 

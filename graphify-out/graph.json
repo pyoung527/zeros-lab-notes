@@ -1,0 +1,61 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "script.js",
+      "file_type": "code",
+      "source_file": "site/script.js",
+      "source_location": "L1",
+      "id": "script_js",
+      "community": 0,
+      "norm_label": "script.js"
+    },
+    {
+      "label": "analyticsLog()",
+      "file_type": "code",
+      "source_file": "site/script.js",
+      "source_location": "L1",
+      "id": "script_analyticslog",
+      "community": 0,
+      "norm_label": "analyticslog()"
+    },
+    {
+      "label": "scrollToForm()",
+      "file_type": "code",
+      "source_file": "site/script.js",
+      "source_location": "L19",
+      "id": "script_scrolltoform",
+      "community": 0,
+      "norm_label": "scrolltoform()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/script.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "script_js",
+      "_tgt": "script_analyticslog",
+      "source": "script_js",
+      "target": "script_analyticslog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site/script.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "script_js",
+      "_tgt": "script_scrolltoform",
+      "source": "script_js",
+      "target": "script_scrolltoform",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}
